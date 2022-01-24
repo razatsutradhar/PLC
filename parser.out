@@ -1,0 +1,768 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    CAR
+    CDR
+    CONS
+
+Grammar
+
+Rule 0     S' -> lispStart
+Rule 1     lispStart -> lisp SEMI
+Rule 2     lisp -> NUMBER
+Rule 3     lisp -> BOOL
+Rule 4     lisp -> ID
+Rule 5     lisp -> LPAR PLUS lisp lisp RPAR
+Rule 6     lisp -> LPAR MINUS lisp lisp RPAR
+Rule 7     lisp -> LPAR MULT lisp lisp RPAR
+Rule 8     lisp -> LPAR DIV lisp lisp RPAR
+Rule 9     lisp -> LPAR IF lisp lisp lisp RPAR
+Rule 10    lisp -> LPAR LESS lisp lisp RPAR
+Rule 11    lisp -> LPAR OR lisp lisp RPAR
+Rule 12    lisp -> LPAR AND lisp lisp RPAR
+Rule 13    lisp -> LPAR GREAT lisp lisp RPAR
+Rule 14    alist -> LPAR LIST RPAR
+
+Terminals, with rules where they appear
+
+AND                  : 12
+BOOL                 : 3
+CAR                  : 
+CDR                  : 
+CONS                 : 
+DIV                  : 8
+GREAT                : 13
+ID                   : 4
+IF                   : 9
+LESS                 : 10
+LIST                 : 14
+LPAR                 : 5 6 7 8 9 10 11 12 13 14
+MINUS                : 6
+MULT                 : 7
+NUMBER               : 2
+OR                   : 11
+PLUS                 : 5
+RPAR                 : 5 6 7 8 9 10 11 12 13 14
+SEMI                 : 1
+error                : 
+
+Nonterminals, with rules where they appear
+
+alist                : 
+lisp                 : 1 5 5 6 6 7 7 8 8 9 9 9 10 10 11 11 12 12 13 13
+lispStart            : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . lispStart
+    (1) lispStart -> . lisp SEMI
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lispStart                      shift and go to state 1
+    lisp                           shift and go to state 2
+
+state 1
+
+    (0) S' -> lispStart .
+
+
+
+state 2
+
+    (1) lispStart -> lisp . SEMI
+
+    SEMI            shift and go to state 7
+
+
+state 3
+
+    (2) lisp -> NUMBER .
+
+    SEMI            reduce using rule 2 (lisp -> NUMBER .)
+    NUMBER          reduce using rule 2 (lisp -> NUMBER .)
+    BOOL            reduce using rule 2 (lisp -> NUMBER .)
+    ID              reduce using rule 2 (lisp -> NUMBER .)
+    LPAR            reduce using rule 2 (lisp -> NUMBER .)
+    RPAR            reduce using rule 2 (lisp -> NUMBER .)
+
+
+state 4
+
+    (3) lisp -> BOOL .
+
+    SEMI            reduce using rule 3 (lisp -> BOOL .)
+    NUMBER          reduce using rule 3 (lisp -> BOOL .)
+    BOOL            reduce using rule 3 (lisp -> BOOL .)
+    ID              reduce using rule 3 (lisp -> BOOL .)
+    LPAR            reduce using rule 3 (lisp -> BOOL .)
+    RPAR            reduce using rule 3 (lisp -> BOOL .)
+
+
+state 5
+
+    (4) lisp -> ID .
+
+    SEMI            reduce using rule 4 (lisp -> ID .)
+    NUMBER          reduce using rule 4 (lisp -> ID .)
+    BOOL            reduce using rule 4 (lisp -> ID .)
+    ID              reduce using rule 4 (lisp -> ID .)
+    LPAR            reduce using rule 4 (lisp -> ID .)
+    RPAR            reduce using rule 4 (lisp -> ID .)
+
+
+state 6
+
+    (5) lisp -> LPAR . PLUS lisp lisp RPAR
+    (6) lisp -> LPAR . MINUS lisp lisp RPAR
+    (7) lisp -> LPAR . MULT lisp lisp RPAR
+    (8) lisp -> LPAR . DIV lisp lisp RPAR
+    (9) lisp -> LPAR . IF lisp lisp lisp RPAR
+    (10) lisp -> LPAR . LESS lisp lisp RPAR
+    (11) lisp -> LPAR . OR lisp lisp RPAR
+    (12) lisp -> LPAR . AND lisp lisp RPAR
+    (13) lisp -> LPAR . GREAT lisp lisp RPAR
+
+    PLUS            shift and go to state 8
+    MINUS           shift and go to state 9
+    MULT            shift and go to state 10
+    DIV             shift and go to state 11
+    IF              shift and go to state 12
+    LESS            shift and go to state 13
+    OR              shift and go to state 14
+    AND             shift and go to state 15
+    GREAT           shift and go to state 16
+
+
+state 7
+
+    (1) lispStart -> lisp SEMI .
+
+    $end            reduce using rule 1 (lispStart -> lisp SEMI .)
+
+
+state 8
+
+    (5) lisp -> LPAR PLUS . lisp lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 17
+
+state 9
+
+    (6) lisp -> LPAR MINUS . lisp lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 18
+
+state 10
+
+    (7) lisp -> LPAR MULT . lisp lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 19
+
+state 11
+
+    (8) lisp -> LPAR DIV . lisp lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 20
+
+state 12
+
+    (9) lisp -> LPAR IF . lisp lisp lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 21
+
+state 13
+
+    (10) lisp -> LPAR LESS . lisp lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 22
+
+state 14
+
+    (11) lisp -> LPAR OR . lisp lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 23
+
+state 15
+
+    (12) lisp -> LPAR AND . lisp lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 24
+
+state 16
+
+    (13) lisp -> LPAR GREAT . lisp lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 25
+
+state 17
+
+    (5) lisp -> LPAR PLUS lisp . lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 26
+
+state 18
+
+    (6) lisp -> LPAR MINUS lisp . lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 27
+
+state 19
+
+    (7) lisp -> LPAR MULT lisp . lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 28
+
+state 20
+
+    (8) lisp -> LPAR DIV lisp . lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 29
+
+state 21
+
+    (9) lisp -> LPAR IF lisp . lisp lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 30
+
+state 22
+
+    (10) lisp -> LPAR LESS lisp . lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 31
+
+state 23
+
+    (11) lisp -> LPAR OR lisp . lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 32
+
+state 24
+
+    (12) lisp -> LPAR AND lisp . lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 33
+
+state 25
+
+    (13) lisp -> LPAR GREAT lisp . lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 34
+
+state 26
+
+    (5) lisp -> LPAR PLUS lisp lisp . RPAR
+
+    RPAR            shift and go to state 35
+
+
+state 27
+
+    (6) lisp -> LPAR MINUS lisp lisp . RPAR
+
+    RPAR            shift and go to state 36
+
+
+state 28
+
+    (7) lisp -> LPAR MULT lisp lisp . RPAR
+
+    RPAR            shift and go to state 37
+
+
+state 29
+
+    (8) lisp -> LPAR DIV lisp lisp . RPAR
+
+    RPAR            shift and go to state 38
+
+
+state 30
+
+    (9) lisp -> LPAR IF lisp lisp . lisp RPAR
+    (2) lisp -> . NUMBER
+    (3) lisp -> . BOOL
+    (4) lisp -> . ID
+    (5) lisp -> . LPAR PLUS lisp lisp RPAR
+    (6) lisp -> . LPAR MINUS lisp lisp RPAR
+    (7) lisp -> . LPAR MULT lisp lisp RPAR
+    (8) lisp -> . LPAR DIV lisp lisp RPAR
+    (9) lisp -> . LPAR IF lisp lisp lisp RPAR
+    (10) lisp -> . LPAR LESS lisp lisp RPAR
+    (11) lisp -> . LPAR OR lisp lisp RPAR
+    (12) lisp -> . LPAR AND lisp lisp RPAR
+    (13) lisp -> . LPAR GREAT lisp lisp RPAR
+
+    NUMBER          shift and go to state 3
+    BOOL            shift and go to state 4
+    ID              shift and go to state 5
+    LPAR            shift and go to state 6
+
+    lisp                           shift and go to state 39
+
+state 31
+
+    (10) lisp -> LPAR LESS lisp lisp . RPAR
+
+    RPAR            shift and go to state 40
+
+
+state 32
+
+    (11) lisp -> LPAR OR lisp lisp . RPAR
+
+    RPAR            shift and go to state 41
+
+
+state 33
+
+    (12) lisp -> LPAR AND lisp lisp . RPAR
+
+    RPAR            shift and go to state 42
+
+
+state 34
+
+    (13) lisp -> LPAR GREAT lisp lisp . RPAR
+
+    RPAR            shift and go to state 43
+
+
+state 35
+
+    (5) lisp -> LPAR PLUS lisp lisp RPAR .
+
+    SEMI            reduce using rule 5 (lisp -> LPAR PLUS lisp lisp RPAR .)
+    NUMBER          reduce using rule 5 (lisp -> LPAR PLUS lisp lisp RPAR .)
+    BOOL            reduce using rule 5 (lisp -> LPAR PLUS lisp lisp RPAR .)
+    ID              reduce using rule 5 (lisp -> LPAR PLUS lisp lisp RPAR .)
+    LPAR            reduce using rule 5 (lisp -> LPAR PLUS lisp lisp RPAR .)
+    RPAR            reduce using rule 5 (lisp -> LPAR PLUS lisp lisp RPAR .)
+
+
+state 36
+
+    (6) lisp -> LPAR MINUS lisp lisp RPAR .
+
+    SEMI            reduce using rule 6 (lisp -> LPAR MINUS lisp lisp RPAR .)
+    NUMBER          reduce using rule 6 (lisp -> LPAR MINUS lisp lisp RPAR .)
+    BOOL            reduce using rule 6 (lisp -> LPAR MINUS lisp lisp RPAR .)
+    ID              reduce using rule 6 (lisp -> LPAR MINUS lisp lisp RPAR .)
+    LPAR            reduce using rule 6 (lisp -> LPAR MINUS lisp lisp RPAR .)
+    RPAR            reduce using rule 6 (lisp -> LPAR MINUS lisp lisp RPAR .)
+
+
+state 37
+
+    (7) lisp -> LPAR MULT lisp lisp RPAR .
+
+    SEMI            reduce using rule 7 (lisp -> LPAR MULT lisp lisp RPAR .)
+    NUMBER          reduce using rule 7 (lisp -> LPAR MULT lisp lisp RPAR .)
+    BOOL            reduce using rule 7 (lisp -> LPAR MULT lisp lisp RPAR .)
+    ID              reduce using rule 7 (lisp -> LPAR MULT lisp lisp RPAR .)
+    LPAR            reduce using rule 7 (lisp -> LPAR MULT lisp lisp RPAR .)
+    RPAR            reduce using rule 7 (lisp -> LPAR MULT lisp lisp RPAR .)
+
+
+state 38
+
+    (8) lisp -> LPAR DIV lisp lisp RPAR .
+
+    SEMI            reduce using rule 8 (lisp -> LPAR DIV lisp lisp RPAR .)
+    NUMBER          reduce using rule 8 (lisp -> LPAR DIV lisp lisp RPAR .)
+    BOOL            reduce using rule 8 (lisp -> LPAR DIV lisp lisp RPAR .)
+    ID              reduce using rule 8 (lisp -> LPAR DIV lisp lisp RPAR .)
+    LPAR            reduce using rule 8 (lisp -> LPAR DIV lisp lisp RPAR .)
+    RPAR            reduce using rule 8 (lisp -> LPAR DIV lisp lisp RPAR .)
+
+
+state 39
+
+    (9) lisp -> LPAR IF lisp lisp lisp . RPAR
+
+    RPAR            shift and go to state 44
+
+
+state 40
+
+    (10) lisp -> LPAR LESS lisp lisp RPAR .
+
+    SEMI            reduce using rule 10 (lisp -> LPAR LESS lisp lisp RPAR .)
+    NUMBER          reduce using rule 10 (lisp -> LPAR LESS lisp lisp RPAR .)
+    BOOL            reduce using rule 10 (lisp -> LPAR LESS lisp lisp RPAR .)
+    ID              reduce using rule 10 (lisp -> LPAR LESS lisp lisp RPAR .)
+    LPAR            reduce using rule 10 (lisp -> LPAR LESS lisp lisp RPAR .)
+    RPAR            reduce using rule 10 (lisp -> LPAR LESS lisp lisp RPAR .)
+
+
+state 41
+
+    (11) lisp -> LPAR OR lisp lisp RPAR .
+
+    SEMI            reduce using rule 11 (lisp -> LPAR OR lisp lisp RPAR .)
+    NUMBER          reduce using rule 11 (lisp -> LPAR OR lisp lisp RPAR .)
+    BOOL            reduce using rule 11 (lisp -> LPAR OR lisp lisp RPAR .)
+    ID              reduce using rule 11 (lisp -> LPAR OR lisp lisp RPAR .)
+    LPAR            reduce using rule 11 (lisp -> LPAR OR lisp lisp RPAR .)
+    RPAR            reduce using rule 11 (lisp -> LPAR OR lisp lisp RPAR .)
+
+
+state 42
+
+    (12) lisp -> LPAR AND lisp lisp RPAR .
+
+    SEMI            reduce using rule 12 (lisp -> LPAR AND lisp lisp RPAR .)
+    NUMBER          reduce using rule 12 (lisp -> LPAR AND lisp lisp RPAR .)
+    BOOL            reduce using rule 12 (lisp -> LPAR AND lisp lisp RPAR .)
+    ID              reduce using rule 12 (lisp -> LPAR AND lisp lisp RPAR .)
+    LPAR            reduce using rule 12 (lisp -> LPAR AND lisp lisp RPAR .)
+    RPAR            reduce using rule 12 (lisp -> LPAR AND lisp lisp RPAR .)
+
+
+state 43
+
+    (13) lisp -> LPAR GREAT lisp lisp RPAR .
+
+    SEMI            reduce using rule 13 (lisp -> LPAR GREAT lisp lisp RPAR .)
+    NUMBER          reduce using rule 13 (lisp -> LPAR GREAT lisp lisp RPAR .)
+    BOOL            reduce using rule 13 (lisp -> LPAR GREAT lisp lisp RPAR .)
+    ID              reduce using rule 13 (lisp -> LPAR GREAT lisp lisp RPAR .)
+    LPAR            reduce using rule 13 (lisp -> LPAR GREAT lisp lisp RPAR .)
+    RPAR            reduce using rule 13 (lisp -> LPAR GREAT lisp lisp RPAR .)
+
+
+state 44
+
+    (9) lisp -> LPAR IF lisp lisp lisp RPAR .
+
+    SEMI            reduce using rule 9 (lisp -> LPAR IF lisp lisp lisp RPAR .)
+    NUMBER          reduce using rule 9 (lisp -> LPAR IF lisp lisp lisp RPAR .)
+    BOOL            reduce using rule 9 (lisp -> LPAR IF lisp lisp lisp RPAR .)
+    ID              reduce using rule 9 (lisp -> LPAR IF lisp lisp lisp RPAR .)
+    LPAR            reduce using rule 9 (lisp -> LPAR IF lisp lisp lisp RPAR .)
+    RPAR            reduce using rule 9 (lisp -> LPAR IF lisp lisp lisp RPAR .)
+
